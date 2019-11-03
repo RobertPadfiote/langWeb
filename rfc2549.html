@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Semantic by Alexis Philip">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Fiche originale : https://tools.ietf.org/html/rfc2549 -->
+	<title>RFC 2549 - IP over Avian Carriers with Quality of Service</title>
+</head>
+<body>
+
+	<header>
+
+		<nav>
+			[<a href="#">Docs</a>]
+			[<a href="#">txt</a>|<a href="#">pdf</a>]
+			[<a href="#">Tracker</a>]
+			[<a href="#">Errata</a>]
+		</nav>
+
+		<table>
+			<tr>
+				<td></td>
+				<td>INFORMATIONAL</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>Errata Exist</td>
+			</tr>
+		</table>
+
+	</header>
+
+	<main>
+		
+		<table>
+			<tr>
+				<td>Network Working Group</td>
+				<td>D. Waitzman</td>
+			</tr>
+			<tr>
+				<td>Request for Comments: 2549</td>
+				<td>IronBridge Networks</td>
+			</tr>
+			<tr>
+				<td>Updates: 
+					<a href="#">1149</a>
+				</td>
+				<td>1 April 1999</td>
+			</tr>
+			<tr>
+				<td>Category: Experimental</td>
+				<td></td>
+			</tr>
+		</table>
+		
+		<h1>IP over Avian Carriers with Quality of Service</h1>
+
+		<h2>Status of this Memo</h2>
+
+		<p>This memo defines an Experimental Protocol for the Internet community. It does not specify an Internet standard of any kind. Discussion and suggestions for improvement are requested. Distribution of this memo is unlimited.</p>
+
+		<h2>Copyright Notice</h2>
+
+		<p>Copyright (C) The Internet Society (1999). All Rights Reserved.</p>
+
+		<h2>Abstract</h2>
+
+		<p>This memo amends <a href="#">RFC 1149</a>, "A Standard for the Transmission of IP Datagrams on Avian Carriers", with Quality of Service information. This is an experimental, not recommended standard.</p>
+
+		<h2>Overview and Rational</h2>
+
+		<p>The following quality of service levels are available: Concorde, First, Business, and Coach. Concorde class offers expedited data delivery. One major benefit to using Avian Carriers is that this is the only networking technology that earns frequent flyer miles, plus the Concorde and First classes of service earn 50% bonus miles per packet. Ostriches are an alternate carrier that have much greater bulk transfer capability but provide slower delivery, and require the use of bridges between domains.</p>
+
+		<p>The service level is indicated on a per-carrier basis by bar-code markings on the wing. One implementation strategy is for a bar-code reader to scan each carrier as it enters the router and then enqueue it in the proper queue, gated to prevent exit until the proper time. The carriers may sleep while enqueued.</p>
+
+		<p>For secure networks, carriers may have classes Prime or Choice. Prime carriers are self-keying when using public key encryption. Some distributors have been known to falsely classify Choice carriers as Prime.</p>
+
+		<p>Packets MAY be marked for deletion using RED paint while enqueued.</p>
+	
+		<p>Weighted fair queueing (WFQ) MAY be implemented using scales, as
+		shown:</p>
+
+		<pre>
+		                                   __
+		                   _____/-----\   / o\
+		                  &lt;____   _____\_/    >--
+		  +-----+              \ /    /______/
+		  | 10g |               /|:||/
+		  +-----+              /____/|
+		  | 10g |                    |
+		  +-----+          ..        X
+		===============================
+		               ^
+		               |
+		       =========
+		</pre>
+
+		<p>Carriers in the queue too long may leave log entries, as shown on the scale.</p>
+
+		<p>The following is a plot of traffic shaping, from coop-erative host sites.</p>
+
+		<pre>
+		Alt |       Plot of Traffic Shaping showing carriers in flight
+		    |
+		 2k |           ....................
+		    |          .                    .
+		    |         .                      .
+		 1k |        .                        .
+		    |   +---+                          +---+
+		    |   | A |                          | B |
+		    |   +---+                          +---+
+		    |_____________________________________________
+		</pre>
+
+		<p>Avian carriers normally bypass bridges and tunnels but will seek out worm hole tunnels. When carrying web traffic, the carriers may digest the spiders, leaving behind a more compact representation. The carriers may be confused by mirrors.</p>
+
+		<p>Round-robin queueing is not recommended. Robins make for well-tuned networks but do not support the necessary auto-homing feature.</p>
+
+		<p>A BOF was held at the last IETF but only Avian Carriers were allowed entry, so we don't know the results other than we're sure they think MPLS is great. Our attempts at attaching labels to the carriers have been met with resistance.</p>
+
+		<p>NATs are not recommended either -- as with many protocols, modifying the brain-embedded IP addresses is difficult, plus Avian Carriers MAY eat the NATs.</p>
+
+		<p>Encapsulation may be done with saran wrappers. Unintentional encapsulation in hawks has been known to occur, with decapsulation being messy and the packets mangled.</p>
+
+		<p>Loose source routes are a viable evolutionary alternative enhanced standards-based MSWindows-compliant technology, but strict source routes MUST NOT be used, as they are a choke-point.</p>
+
+		<p>The ITU has offered the IETF formal alignment with its corresponding technology, Penguins, but that won't fly.</p>
+
+		<p>Multicasting is supported, but requires the implementation of a clone device. Carriers may be lost if they are based on a tree as it is being pruned. The carriers propagate via an inheritance tree. The carriers have an average TTL of 15 years, so their use in expanding ring searches is limited.</p>
+
+		<p>Additional quality of service discussion can be found in a Michelin's
+		guide.</p>
+
+		<h2>MIB and Management issues</h2>
+												 
+		<p>AvCarrier2 OBJECT-TYPE</p>
+		
+		<table>
+			<tr>
+				<td>SYNTAX</td>
+				<td>SEQUENCE OF DNA</td>
+			</tr>
+			<tr>
+				<td>MAX-ACCESS</td>
+				<td>can't-read</td>
+			</tr>
+			<tr>
+				<td>STATUS</td>
+				<td>living</td>
+			</tr>
+			<tr>
+				<td>DESCRIPTION</td>
+				<td>"Definition of an avian carrier"</td>
+			</tr>
+		</table>
+		
+		<pre>
+		 ::= { life eukaryotes mitochondrial_eukaryotes crown_eukaryotes
+					 metazoa chordata craniata vertebrata gnathostomata
+					 sarcopterygii terrestrial_vertebrates amniota diapsida
+					 archosauromorpha archosauria dinosauria aves neornithes
+					 columbiformes columbidae columba livia }
+		</pre>
+					
+		<p>AvCarrier OBJECT-TYPE</p>
+		
+		<table>
+			<tr>
+				<td>SYNTAX</td>
+				<td>SET OF Cells</td>
+			</tr>
+			<tr>
+				<td>MAX-ACCESS</td>
+				<td>not-accessible</td>
+			</tr>
+			<tr>
+				<td>STATUS</td>
+				<td>obsolete</td>
+			</tr>
+			<tr>
+				<td>DESCRIPTION</td>
+				<td>"Definition of an avian carrier"</td>
+			</tr>
+		</table>
+
+		<pre>
+			::= { life animalia chordata vertebrata aves
+						columbiformes columbidae columba livia }
+		</pre>
+		
+		<p>PulseRate OBJECT-TYPE</p>
+		
+		<table>
+			<tr>
+				<td>SYNTAX</td>
+				<td>Gauge(0..300)</td>
+			</tr>
+			<tr>
+				<td>MAX-ACCESS</td>
+				<td>read-only</td>
+			</tr>
+			<tr>
+				<td>STATUS</td>
+				<td>current</td>
+			</tr>
+			<tr>
+				<td>DESCRIPTION</td>
+				<td>"Pulse rate of carrier, as measured in neck. Frequent sampling is disruptive to operations."</td>
+			</tr>
+		</table>
+		
+		<pre>
+			::= { AvCarrier 1}
+		</pre>
+
+		<p>The carriers will not line up in lexigraphic order but will naturally order in a large V shape. Bulk retrieval is possible using the Powerful Get-Net operator.</p>
+
+		<h2>Specification of Requirements</h2>
+
+		<p>In this document, several words are used to signify the requirements of the specification. These words are often capitalized.</p>
+
+		<table>
+			<tr>
+				<td>MUST</td>
+				<td>Usually.</td>
+			</tr>
+			<tr>
+				<td>MUST NOT</td>
+				<td>Usually not.</td>
+			</tr>
+			<tr>
+				<td>SHOULD</td>
+				<td>Only when Marketing insists.</td>
+			</tr>
+			<tr>
+				<td>MAY</td>
+				<td>Only if it doesn't cost extra.</td>
+			</tr>
+		</table>
+
+		<h2>Security Considerations</h2>
+
+		<p>There are privacy issues with stool pigeons.</p>
+		<p>Agoraphobic carriers are very insecure in operation.</p>
+
+		<h2>Patent Considerations</h2>
+
+		<p>There is ongoing litigation about which is the prior art: carrier or egg.</p>
+
+		<h2>References</h2>
+
+		<p>Waitzman, D., "A Standard for the Transmission of IP Datagrams on Avian Carriers", <a href="#">RFC 1149</a>, 1 April 1990.</p>
+
+		<h2>ACKnowledgments</h2>
+
+		<p>Jim.Carlson.Ibnets.com > Jon.Saperia . ack 32 win 123 (DF) Ross Callon, Scott Bradner, Charlie Lynn ...</p>
+
+		<h2>Author's Address</h2>
+
+		<p>David Waitzmanbr<br>
+		IronBridge Networks<br>
+		55 Hayden Ave<br>
+		Lexington, MA 02421<br>
+		Phone: (781) 372-8161</p>
+
+		<p>EMail: djw@vineyard.net</p>
+
+		<h2>Full Copyright Statement</h2>
+
+		<p>Copyright (C) The Internet Society (1999). All Rights Reserved.</p>
+
+		<p>This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it or assist in its implementation may be prepared, copied, published and distributed, in whole or in part, without restriction of any kind, provided that the above copyright notice and this paragraph are included on all such copies and derivative works. However, this document itself may not be modified in any way, such as by removing the copyright notice or references to the Internet Society or other Internet organizations, except as needed for the purpose of developing Internet standards in which case the procedures for copyrights defined in the Internet Standards process must be followed, or as required to translate it into languages other than English.</p>
+
+		<p>The limited permissions granted above are perpetual and will not be revoked by the Internet Society or its successors or assigns.</p>
+
+		<p>This document and the information contained herein is provided on an "AS IS" basis and THE INTERNET SOCIETY AND THE INTERNET ENGINEERING TASK FORCE DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.</p>
+
+	</main>
+
+</body>
+</html>
