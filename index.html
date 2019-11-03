@@ -19,10 +19,14 @@
 </nav>
 <section class="top">
     <div class="container">
-    <form class="form-inline ">
-        <input class="form-control form-control-sm mr-3 w-75 mx-auto m-5" type="text" placeholder="Search"
+    <form class="form m-5 ">
+        <input class="form-control form-control-sm mr-3 ml-3 w-75  mt-5" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search"
                aria-label="Search">
-        <i class="fas fa-search" aria-hidden="true"></i>
+        <ul id="myUL">
+            <li><a href="rfc1149.html">RFC 1149</a></li>
+            <li><a href="rfc6214.html">RFC 6214</a></li>
+            <li><a href="rfc2549.html">RFC 2549</a></li>
+        </ul>
     </form>
     <div id="carouselExampleIndicators" class="carousel slide w-25 mx-auto m4" data-ride="carousel">
         <div class="carousel-inner ">
@@ -45,29 +49,111 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+        <p class="last">Last Realeased Content..</p>
     </div>
 </section>
 <section class="main_content m-4">
     <div class="container border h-100">
-        <div class="container w-25 border d-inline-flex justify-content-center align-baseline m-4">
+        <div class="container 1149 w-25 border d-inline-flex justify-content-center align-baseline m-4">
             <a class="list" href="rfc1149.html">
-                <img class="d-block w-25 mx-auto" src="img/paper.svg">
+                <img class="d-block w-25 mx-auto" src="img/paper.svg" alt="Feuille de papier">
                 RFC 1149
             </a>
         </div>
-        <div class="container w-25 border d-inline-flex justify-content-center align-baseline m-4">
+        <div class="container 2549 w-25 border d-inline-flex justify-content-center align-baseline m-4">
             <a class="list" href="rfc2549.html">
-                <img class="d-block w-25 mx-auto" src="img/paper.svg">
+                <img class="d-block w-25 mx-auto" src="img/paper.svg" alt="Feuille de papier">
                 RFC 2549
             </a>
         </div>
-        <div class="container w-25 border d-inline-flex justify-content-center align-baseline m-4">
+        <div class="container 6214 w-25 border d-inline-flex justify-content-center align-baseline m-4">
             <a class="list" href="rfc6214.html">
-                <img class="d-block w-25 mx-auto" src="img/paper.svg">
+                <img class="d-block w-25 mx-auto" src="img/paper.svg" alt="Feuille de papier">
                 RFC 6214
             </a>
         </div>
     </div>
 </section>
+<section class="filter">
+    <div class="filter-menu container-fluid position-fixed border">
+        Filter :
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="informational" id="defaultCheck1" >
+            <label class="form-check-label" for="defaultCheck1">
+                Informational
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="experimental" id="defaultCheck2" >
+            <label class="form-check-label" for="defaultCheck1">
+                Experimental
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="other" id="defaultCheck3">
+            <label class="form-check-label" for="defaultCheck1">
+                Other
+            </label>
+        </div>
+    </div>
+</section>
+<script src="js/script"></script>
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById('myInput');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        ul.classList.add("activeul");
+        li = ul.getElementsByTagName('li');
+
+
+
+
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+
+    }
+
+    // function Tags() {
+    //     var check1, check2, check3, fiche1,fiche2,fiche3;
+    //     check1 = document.getElementById("defaultcheck1");
+    //     check2 = document.getElementById("defaultcheck2");
+    //     check3 = document.getElementById("defaultcheck3");
+    //     fiche1 = document.getElementsByClassName("1149");
+    //     fiche2 = document.getElementsByClassName("6214");
+    //     fiche3 = document.getElementsByClassName("2549");
+    //     console.log(fiche2);console.log(fiche3);console.log(fiche1);
+    //     var checktag1, checktag2, checktag3;
+    //     checktag1 = check1.checked;checktag2 = check2.checked;checktag3 = check3.checked;
+    //     console.log(checktag1,checktag2,checktag3);
+    //     // if (check1.checked){
+    //     //     fiche2.classList.add("activefiche");
+    //     //     fiche1.classList.add("hidefiche");
+    //     //     fiche3.classList.add("hidefiche");
+    //     // }
+    //     // else if (check2.checked){
+    //     //     fiche3.classList.add("activefiche");
+    //     //     fiche1.classList.add("hidefiche");
+    //     //     fiche2.classList.add("hidefiche");
+    //     // }
+    //     // else if (check3.checked){
+    //     //     fiche1.classList.add("activefiche");
+    //     //     fiche2.classList.add("hidefiche");
+    //     //     fiche3.classList.add("hidefiche");
+    //     // }
+    //
+    // }
+</script>
+
 </body>
 </html>
